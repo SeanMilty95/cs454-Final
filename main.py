@@ -1,8 +1,14 @@
+#Authors: Sean Miltenberger, Spencer Greco, Joe Haun
+#Problem #7
+
 from functions import *
 
+#Variables that keep the main program running
 run = True
 new_input = True
+
 while run == True:
+    #Ask for input until valid input is acquired
     while new_input == True:
         N = input("Enter a positive integer for the value of N.\n")
         new_input = False
@@ -12,7 +18,8 @@ while run == True:
             print("{0} is not valid input.".format(N))
             new_input = True
 
-    new_input = True     
+    new_input = True
+    #Ask for input until valid input is acquired
     while new_input == True:
         M = input("Enter a positive integer for the length of the palindrome you want to find.\n")
         new_input = False
@@ -23,11 +30,17 @@ while run == True:
             new_input = True
         
     #Do DFA stuff
+    dfa = generate_DFA_Table(N)
+    print(dfa)
     
+    #Refer to the functions.py file for a list of functions used
+    smallest_palindrome = GetSmallestPalindrome(dfa, M)
 
+    print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
 
-    run_again = input("Do you want to run the program again?(yes or no)")
-    if run_again == "yes":
+    #Ask to run again
+    run_again = input("\nDo you want to run the program again?(yes or no) ")
+    if run_again == "yes" or run_again == 'y':
         run = True
         new_input = True
     else:
