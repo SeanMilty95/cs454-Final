@@ -1,7 +1,9 @@
 #DFA class that can be used to create any DFA
+import numpy as np
+import queue
+import array
 
 class DFA:
-    #Class to create a DFA and iterate through it
     current_state = None;
     def __init__(self, states, alphabet, transition_function, start_state, accept_states):
         self.states = states;
