@@ -1,13 +1,27 @@
 #Authors: Sean Miltenberger, Spencer Greco, Joe Haun
 #Problem #7
 
+from dfa_class import *
+
 #Used to generate a list of states for dfa
 def generate_DFA_Table(N):
-    dfa = ['q'+str(i) for i in range(N)]
-
+    #dfa = ['q'+str(i) for i in range(N)]
+    S = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; #Possible Symbol Choices for DFA from 0-9
+    States = dict(); #Initialize States to place values into it
+    TranTable = dict(); #Initialize Transition Table to place values into it
+    for i in range(0, N):
+        States[i] = i; #Set each state 
+        for j in S:
+            TranTable[(i,j)]=j%N; #Each transition should be the state value modulos N
+    
+    Final = {0};
+    dfa = DFA(States, S, TranTable, N, Final);
     #Will possibly need to make a NxN matrix
     
     return dfa
+
+def smallTransferFunctionCalc():
+    return 
 
 def GetSmallestPalindrome(dfa_list, M):
     is_full = False
