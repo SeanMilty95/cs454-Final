@@ -16,26 +16,20 @@ def generate_DFA_Table(N):
     
     Final = {0};
     dfa = DFA(States, S, TranTable, N, Final);
-    #Will possibly need to make a NxN matrix
-    
     return dfa
 
-def smallTransferFunctionCalc():
-    return 
-
-def GetSmallestPalindrome(dfa_list, M):
+def GetSmallestPalindrome(DFA, M):
     is_full = False
     smallest_palindrome = 0
     half = int(M/2)
     
-    #List to hold the last half of the palidrome
+   #List to hold the last half of the palidrome
         #puts a 0 at every index
     num_list = [0 for i in range(half)]
     """
     I think we will need a list of digits to use the dfa table but I could be wrong.
     Also it may be faster to increment an integer and listify it when we test it.
     """
-
     #Loop to add to the list of digits 
     while is_full != True:
         stop = False
@@ -64,6 +58,39 @@ def GetSmallestPalindrome(dfa_list, M):
     print(num_list)
     return smallest_palindrome
 
+def breadth_first_search(DFA): #Requires testing with whatever function that is working 
+    #Function takes in a DFA, M, and returns a string that is accepted and of minimum length
+    ToVisit = queue.Queue(0);
+    Visited = set()
+
+    Info = dict();
+
+    Begin = M.report_current_state();
+    Info[Begin] = (None, None)
+    ToVisit.put(Begin)
+    Count = 0;
+    inputList = list();
+    while not ToVisit.empty():
+        Cur = ToVisit.get();
+
+        if M.in_accept_state:
+            while(Info[Cur][0] is not None):
+                  Cur, inputVal = Info[Cur];
+                  print(inputVal);
+                  inputList.append(inputVal);
+            return inputList.reverse();
+
+        for (Next, InputVal) in M.get_next_states():
+            if Next in Visited:
+                continue
+            if Next not in ToVisit:
+                Info[Next] = (Cur, InputVal);
+                ToVisit.put(Next);
+        Count = Count + 1;
+        Visited.add(Cur);
+    print("No solution")
+    return inputList;
+    
 #This function takes a list and adds one to the appropriate place
 def change_number_value(index, num_list):
     #If a number was added it returns True so the list will be tested
