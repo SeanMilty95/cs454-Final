@@ -2,6 +2,7 @@
 #Problem #7
 
 from functions import *
+from dfa_class import *
 
 #Variables that keep the main program running
 run = True
@@ -31,7 +32,7 @@ while run == True:
         
     #Do DFA stuff
     dfa = generate_DFA_Table(N)
-    print(dfa)
+    #print(dfa) #Commented out as it will likely print garbage
     
     #Refer to the functions.py file for a list of functions used
     smallest_palindrome = GetSmallestPalindrome(dfa, M)
