@@ -15,7 +15,8 @@ def generate_DFA_Table(N):
             TranTable[(i,j)]=j%N; #Each transition should be the state value modulos N
     
     Final = {0};
-    dfa = DFA(States, S, TranTable, N, Final);
+    Start = {0}; #We will need to perform one move first to prevent false positives
+    dfa = DFA(States, S, TranTable, Start, Final);
     return dfa
 
 def GetSmallestPalindrome(DFA, M):
