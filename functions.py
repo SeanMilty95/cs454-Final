@@ -59,7 +59,7 @@ def GetSmallestPalindrome(DFA, M):
     return smallest_palindrome
 
 def breadth_first_search(DFA): #Requires testing with whatever function that is working 
-    #Function takes in a DFA, M, and returns a string that is accepted and of minimum length
+    #Function takes in a DFA and returns a string that is accepted and of minimum length
     ToVisit = queue.Queue(0); #Setup queue of states to be visited
     Visited = set() #Setup queue of states visited, initially empty
 
