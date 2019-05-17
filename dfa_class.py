@@ -50,3 +50,4 @@ class DFA:
 
     def print(self):
         print("States: {0}\nAlphabet: {1}\nStart State: {2}\nAccept State: {3}\nCurrent State: {4}".format(self.states, self.alphabet, self.start_state, self.accept_states, self.current_state))
+        print("Transition Table: {0}".format(self.transition_function))
