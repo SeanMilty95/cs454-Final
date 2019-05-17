@@ -46,3 +46,7 @@ class DFA:
             count = count + 1;   
         return outArray;
     pass;
+
+
+    def print(self):
+        print("States: {0}\nAlphabet: {1}\nStart State: {2}\nAccept State: {3}\nCurrent State: {4}".format(self.states, self.alphabet, self.start_state, self.accept_states, self.current_state))

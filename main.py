@@ -32,12 +32,12 @@ while run == True:
         
     #Do DFA stuff
     dfa = generate_DFA_Table(N)
-    #print(dfa) #Commented out as it will likely print garbage
+    dfa.print() #Commented out as it will likely print garbage
     
     #Refer to the functions.py file for a list of functions used
-    smallest_palindrome = GetSmallestPalindrome(dfa, M)
+    #smallest_palindrome = GetSmallestPalindrome(dfa, M)
 
-    print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
+    #print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
 
     #Ask to run again
     run_again = input("\nDo you want to run the program again?(yes or no) ")
