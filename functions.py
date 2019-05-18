@@ -17,11 +17,12 @@ def GetSmallestPalindrome(DFA, M, N):
     num_list = []
     num = []
     half = M//2
+    visited = queue()
     
     while not_found:
         for i in range(half):
             for k in range(10):
-               print(no)
+               print("")
     return 0
 
 def couldnt_figure(M, N, go_to):
