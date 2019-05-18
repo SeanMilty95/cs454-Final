@@ -9,6 +9,7 @@ run = True
 new_input = True
 
 while run == True:
+    print("\nWe chose the smallest palindrome option of this problem.\n")
     #Ask for input until valid input is acquired
     while new_input == True:
         N = input("Enter a positive integer for the value of N.\n")
@@ -45,7 +46,12 @@ while run == True:
     
     #Refer to the functions.py file for a list of functions used
     #smallest_palindrome = GetSmallestPalindrome(dfa_array, M, N)
-    go_to = 500 
+    if M <= 15:
+        go_to = 10000
+    elif M <= 30:
+        got_to = 500000
+    else:
+        go_to = 1000000
     num_list = couldnt_figure(M, N, go_to)
     #print(num_list)
     print(" ")
