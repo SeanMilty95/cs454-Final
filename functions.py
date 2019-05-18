@@ -24,33 +24,29 @@ def GetSmallestPalindrome(DFA, M, N):
                print(no)
     return 0
 
-def couldnt_figure(M, N):
-    num_list = [0 for i in range(200)]
-    for i in range(1,200):
+def couldnt_figure(M, N, go_to):
+    num_list = [0 for i in range(go_to)]
+    for i in range(1,go_to):
         num_list[i] = (num_list[i-1]+N)
     return num_list
 
-def change_to_pal(num_list, M):
+def change_to_pal(num_list, M, go_to):
     str_list = ['0']
     rev_num = ['0']
     pal_list = ['0']
     good_pal = ['0']
-    for i in range(1,200):
+    for i in range(1,go_to):
         new = str(num_list[i])
         while len(new) < M//2:
             new = '0' + new
         str_list.append(new)
-    for i in range(1,200):
+    for i in range(1,go_to):
         rev_num.append(str_list[i][::-1])
-    for i in range(1,200):
+    for i in range(1,go_to):
         pal_list.append(rev_num[i]+str_list[i])
-    
-    #print(str_list)
-    #print(rev_num)
-    #print(pal_list)
 
-    for i in range(1,200):
+    for i in range(1,go_to):
         if len(pal_list[i]) == M and pal_list[i][0] != '0':
             good_pal.append(pal_list[i])
-    #print(good_pal)
+   
     return good_pal

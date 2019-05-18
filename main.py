@@ -45,17 +45,24 @@ while run == True:
     
     #Refer to the functions.py file for a list of functions used
     #smallest_palindrome = GetSmallestPalindrome(dfa_array, M, N)
-    num_list = couldnt_figure(M, N)
+    go_to = 500 
+    num_list = couldnt_figure(M, N, go_to)
     #print(num_list)
     print(" ")
-    palin_list = change_to_pal(num_list, M)
+    palin_list = change_to_pal(num_list, M, go_to)
     sorted_pal = sorted(palin_list)
     #print(sorted_pal)
-    smallest_palindrome = sorted_pal[1]
+    no_pal = False
+    if len(sorted_pal) == 1:
+        smallest_palindrome = 0
+        no_pal = True
+    else:
+        smallest_palindrome = sorted_pal[1]
     #smallest_palindrome = breadth_first_search(dfa)
-
-    print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
-
+    if no_pal == False:
+        print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
+    if no_pal:
+        print("No palindrome of length {0}".format(M))
     #Ask to run again
     run_again = input("\nDo you want to run the program again?(yes or no) ")
     if run_again == "yes" or run_again == 'y':
