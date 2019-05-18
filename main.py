@@ -8,11 +8,15 @@ from DFA import *
 run = True
 new_input = True
 
+print("*********************************************************")
+print("Read the README file for more in depth input instructions")
+print("*********************************************************")
+
 while run == True:
     print("\nWe chose the smallest palindrome option of this problem.\n")
     #Ask for input until valid input is acquired
     while new_input == True:
-        N = input("Enter a positive integer for the value of N.\n")
+        N = input("Enter a positive integer for the value of N(must be even).\n")
         new_input = False
         try:
             N = int(N)
