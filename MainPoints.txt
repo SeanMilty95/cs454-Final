@@ -1,0 +1,18 @@
+Main points to talk about in video and write up
+
+-Challenges
+   -How to test if divisible by N
+   -How to generate numbers to check for divisible by N
+   -How to tell if number is a palindrome and divisible by N
+-Problem insights
+   -Figured out how to create modulous DFA
+   -Figured out that if M/2 is divisible by N it can be reversed and concatinated to the left side to create a 
+    palindrome that is also divisible by N
+      -Example 012 is divisible by 4 so the reverse 210 concatinated with 012 equals 210012 which is a 
+       palindrome divisible by 4
+      -This significantly cut down on time taken
+   -We noticed if we bagan to generate numbers with a rightmost digit greater than a number already generated
+    we could stop looking for numbers to test because when reversed as mentioned above the complete palindrome
+    will have a greater leftmost digit making the value larger than previously generated numbers.
+       -This only works because we are looking for the smallest palindrome
+   
