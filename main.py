@@ -32,9 +32,11 @@ while run == True:
             new_input = True
         
     #Do DFA stuff
-    #dfa = generate_DFA_Table(N)
-    dfa = DFA2(M, N)
-    dfa.print()
+    dfa_array = generate_DFA_Table(M, N)
+    #dfa = DFA2(M, N)
+    print("\n")
+    print(dfa_array)
+    #dfa.print()
     print("\n")
 
 
@@ -44,7 +46,7 @@ while run == True:
     
     #smallest_palindrome = breadth_first_search(dfa)
 
-    print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
+    #print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
 
     #Ask to run again
     run_again = input("\nDo you want to run the program again?(yes or no) ")

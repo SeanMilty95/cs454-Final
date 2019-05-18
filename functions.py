@@ -4,9 +4,16 @@
 from dfa_class import *
 
 #Used to generate a list of states for dfa
-def generate_DFA_Table(N):
+def generate_DFA_Table(M,N):
+    states = [[0 for i in range(N)]for k in range(N)]
+    for i in range(N):
+        for k in range(N):
+            states[i][k] = ((10*i) + k) %N
+        
+            
     
-    return dfa
+            
+    return states
 
 def GetSmallestPalindrome(DFA, M, N):
     smallest_palindrome = 0
