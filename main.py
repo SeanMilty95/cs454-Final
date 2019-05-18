@@ -2,7 +2,6 @@
 #Problem #7
 
 from functions import *
-from dfa_class import *
 from DFA import *
 
 #Variables that keep the main program running
@@ -32,21 +31,30 @@ while run == True:
             new_input = True
         
     #Do DFA stuff
-    dfa_array = generate_DFA_Table(M, N)
-    #dfa = DFA2(M, N)
-    print("\n")
-    print(dfa_array)
-    #dfa.print()
-    print("\n")
+    printIt = input("Would you like the DFA table? (y or n): ")
+    if printIt == 'y' or printIt == 'Y' or printIt == "yes":
+        dfa_array = generate_DFA_Table(M, N)
+        print("X |  0  1  2  3  4  5  6  7  8  9")
+        print("-------------------------------------")
+        for i in range(N):
+            print("{0} | {1}".format(i, dfa_array[i]))
+    else:
+        print("Your answer was not y so no table will be printed.\n")
 
 
     
     #Refer to the functions.py file for a list of functions used
-    #smallest_palindrome = GetSmallestPalindrome(dfa, M, N)
-    
+    #smallest_palindrome = GetSmallestPalindrome(dfa_array, M, N)
+    num_list = couldnt_figure(M, N)
+    #print(num_list)
+    print(" ")
+    palin_list = change_to_pal(num_list, M)
+    sorted_pal = sorted(palin_list)
+    #print(sorted_pal)
+    smallest_palindrome = sorted_pal[1]
     #smallest_palindrome = breadth_first_search(dfa)
 
-    #print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
+    print("The smallest palindrome divisible by {0} of length {1} is: {2}".format(N, M, smallest_palindrome))
 
     #Ask to run again
     run_again = input("\nDo you want to run the program again?(yes or no) ")
