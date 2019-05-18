@@ -41,8 +41,8 @@ class DFA:
     def get_next_states(self): #Returns possible next states, this function might require some tweaking for our purposes
         outArray = array.array('i', range(len(self.alphabet)));
         count = 0;
-        for i in self.alphabet:
-            outArray[count] = self.transition_function[(self.current_state, i[0])];
+        for i in range(len(self.alphabet)):
+            outArray[str(count)] = self.transition_function[(self.current_state, self.alphabet[1])];
             count = count + 1;   
         return outArray;
     pass;
